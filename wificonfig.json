@@ -1,0 +1,17 @@
+{
+    "aironet": [
+        {
+            "host_ip": "10.62.10.3",
+            "hostname": "62-artAccessPoint",
+            "username": "admin",
+            "password": "pass",
+            "ssid": "62-cyberART",
+            "authentication": "open",
+            "key-man": "wpa",
+            "wifi-pass": "Cisc0123",
+            "channel": "4",
+            "enc-mod": "tkip"
+        }
+    ]
+}
+
