@@ -305,7 +305,7 @@ router bgp 45
  network 45.4.5.0 mask 255.255.255.0
 end
 
-TASK4: WHY OSPF AND BGP ARE BEST FRIENDS:
+TASK4: WHY OSPF AND BGP ARE BEST FRIENDS, Soulmates:
 OSPF can Inject all BGP routes int ONE ospf route: O*E2
 R1:
 CONFIG t
