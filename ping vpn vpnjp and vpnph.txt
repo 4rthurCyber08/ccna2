@@ -1,0 +1,43 @@
+@avoid timeout virtual vpn
+config t
+line vty 0 14
+exe-time 0 0
+do ur
+
+
+ip ssg version 2
+
+@vpnjp
+config t
+no logging console
+no ip domain lookup
+int gi 1
+ip add 200.0.0.10 255.255.255.0
+no shut
+int gi 3
+ip add 10.10.10.1 255.255.255.0
+no shut
+ip route 0.0.0.0 0.0.0.0 200.0.0.20
+end
+
+@vpnph
+config t
+no logging console
+no ip domain lookup
+int gi 1
+ip add 200.0.0.20 255.255.255.0
+no shut
+int gi 3
+ip add 10.20.20.1 255.255.255.0
+no shut
+ip route 0.0.0.0 0.0.0.0 200.0.0.10
+end
+
+-- LINUX COMMANDS INSIDE VM --
+@bldgjp
+sudo ifconfig eth0 10.10.10.10 netmask 255.255.255.0 up
+sudo route add default gw 10.10.10.1
+
+@bldgph
+sudo ifconfig eth0 10.20.20.20 netmask 255.255.255.0 up
+sudo route add default gw 10.20.20.1
