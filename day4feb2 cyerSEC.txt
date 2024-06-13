@@ -274,7 +274,7 @@ Interface Gi 3
 ip access-group PROWEBAPP2 in
 do sho ip access-list PROWEBAPP2
 
-EX. 3 CREATE A POLICY NAMED PROWEBAPP2 TO OPEN
+EX. 3 CREATE A POLICY NAMED PROWEBAPP3 TO OPEN
 www.web8.com has DNS, SSH, HTTP, TELNET, OPEN
 www.web9.com has TELNET,HTTPS, SSH OPEN
 
@@ -292,10 +292,76 @@ Interface Gi 3
 ip access-group PROWEBAPP3 in
 do sho ip access-list PROWEBAPP3
 
+EX. 4 CREATE A POLICY NAMED PROWEBAPP4 TO OPEN
+www.web8.com HAS ping, dns, https OPEN
+www.web9.com HAS everything OPEN!
+
+config t
+no ip access-list extended PROWEBAPP4
+ip access-list extended PROWEBAPP4
+Permit icmp any host www.web8.com
+Permit tcp any host www.web8.com eq 53 log
+Permit tcp any host www.web8.com eq 443 log
+Permit IP any host www.web9.com
+Interface Gi 3
+ip access-group PROWEBAPP4 in
+do sho ip access-list PROWEBAPP4
+
+EX. 5 CREATE A POLICY NAMED LASTFWP TO OPEN
+www.web8.com HAS ping, chargen, finger, http OPEN
+www.web9.com HAS ssh, telnet, daytime, dns, http, https as OPEN
+
+config t
+no ip access-list extended LASTFWP
+ip access-list extended LASTFWP
+Permit tcp any host www.web8.com eq 19 
+Permit tcp any host www.web8.com eq 79 
+Permit tcp any host www.web8.com eq 80 
+Permit tcp any host www.web9.com eq 22 
+Permit tcp any host www.web9.com eq 23 
+Permit tcp any host www.web9.com eq 13 
+Permit tcp any host www.web9.com eq 53 
+Permit tcp any host www.web9.com eq 80 
+Permit tcp any host www.web9.com eq 443
+Interface Gi 3
+ip access-group LASTFWP in
+do sho ip access-list LASTFWP
 
 
+TASK 8 CONFIGURE
+config t
+ntp server 216.239.35.8
+end
+sh ntp associations
+
+TASK 9 NAT: NETWORK ADDRESS TRANSLATION SERVICE:
+give Internet to your Entire Building!
+
+NAT, PROXY, HOTSPOTM TETHERING = PENGE INTERNET
+
+How to give Internet to your Entire Building using Cisco
+STEP1: define INSIDE AND OUTSIDE:
+STEP2: Create Access-list to perit IP of Inside:
+STEP3: Create a NAT pool with overload
+@vpnPH:
+config t
+int gi 1
+ip nat OUTSIDE
+int gi 2
+ip nat INSIDE
+int gi 3
+ip nat INSIDE
+
+no access-list 7
+access-list 7 permit 192.168.102.0 0.0.0.255
+access-list 7 permit 192.168.103.0 0.0.0.255
+ip nat inside source list 7 interface Gi 1 overload
+ip nat inside source static 192.168.102.69 192.168.108.69
+ip nat inside source static 192.168.103.88 192.168.108.88
+end
 
 
+TASK 10: DO YOU WANT TO BE REPLACED BY A.I. AT WORK? REPLACED BY YOUNGER, SMARTER, CHEAPER NEW HIRES? HOW TO BE UNTOUCHABLE EMPLOYEE?
 
 
 
