@@ -168,6 +168,7 @@ access-list 3 deny ANY
 do sh ip access-list 3
 Interface Gi0/0/1
   IP access-group 3 in
+
 @@version 2:
 config t
 no access-list 5
@@ -208,8 +209,9 @@ the Basics for Firewalls.
 before: nmap -v 10.m.100.8
 @Cucm:
 config t
-int fa 0/0
- ip add 10.m.100.9 255.255.255.0 Secondary
+int gi 3
+ip add 192.168.103.8 255.255.255.0 
+ip add 192.168.103.9 255.255.255.0 Secondary
 service finger
 service tcp-small-servers
 service udp-small-servers
@@ -217,15 +219,17 @@ ip dns server
 ip http server
 ip http secure-server
 !Make Ping EASY
-ip host pc 10.m.1.10
-ip host cm 10.m.100.8
-ip host cm2 10.m.100.9
-ip host p1 10.m.100.101
-ip host p2 10.m.100.102
-ip host c6 10.m.50.6
-ip host c8 10.m.50.8
-ip host sw 10.m.1.4
-ip host ed 10.m.m.1
+ip host www.web8.com 192.168.103.8
+ip host www.web9.com 192.168.103.8
+ip host pc 10.62.1.10
+ip host cm 10.62.100.8
+ip host cm2 10.62.100.9
+ip host p1 10.62.100.101
+ip host p2 10.62.100.102
+ip host c6 10.62.50.6
+ip host c8 10.62.50.8
+ip host sw 10.62.1.4
+ip host ed 10.62.62.1
 
 TASK7: Enter the World of BlueTeam: Protect vs Redteam: Attack, 
 BlueTeam: UTM: unified Threat management:
