@@ -73,6 +73,8 @@ Int Gi 0/0/1
  end
 
 
+
+
 TASK2: USE STANDARD ACCESS-LIST TO BLOCK OTHER CONTRIES/CLASSMATE:
 config t
 NO ip access-list standard NOCOL1
@@ -86,6 +88,24 @@ DENY 10.61.0.0 0.0.255.255
 Permit Any
 Int Gi 0/0/1
  ip access-group NOCOL1 in
+ end
+
+!block classmates
+config t
+NO ip access-list standard KAMI1
+ip access-list standard KAMI1
+DENY 10.11.1.4 0.0.255.255
+DENY 10.21.1.4 0.0.255.255
+DENY 10.31.1.4 0.0.255.255
+DENY 10.41.1.4 0.0.255.255
+DENY 10.51.1.4 0.0.255.255
+DENY 10.61.1.4 0.0.255.255
+DENY 10.71.1.4 0.0.255.255
+DENY 10.81.1.4 0.0.255.255
+DENY 10.91.1.4 0.0.255.255
+Permit Any
+Int Gi 0/0/1
+ ip access-group KAMI1 in
  end
 
 TASK3: When you become a Security Analyst:
