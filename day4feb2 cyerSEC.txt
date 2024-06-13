@@ -57,6 +57,7 @@ Int Gi 0/0/1
  ip access-group NOPORN1 in
  end
 
+!block shopee lazada etc
 config t
 NO ip access-list standard NOBUYME
 ip access-list standard NOBUYME
