@@ -1,0 +1,175 @@
+TASK 1 -- Mastering OSI Layer
+
+1. Electrical 
+	V - voltage
+2. FOC - Fiber Optic 850 / 1310nm
+	I - interface
+3. RF - Radio Frequency
+	T - transmission
+
+EIA-TIA B Standard
+
+
+@gives cisco user pass
+@corebaba
+username admin privilege 15 secret pass
+line vty 0 14
+login local
+
+@cmd
+telnet 10.62.1.4
+user: torta
+pass dlsucsb
+
+user: blue
+pass: abmma
+
+user: admin
+pass: pass
+
+***
+TASK 2 -- Mastering OSI Layer
+Cisco
+
+@corebaba
+conf t
+!give private key to cisco using name
+ip domain-name rivanit.com
+crypto key generate rsa
+ip ssh version 2
+
+
+***
+Task 3 How do you know if you are hacked
+Threeway Handshake
+
+ping www.ccp.edu.ph
+nmap -v (50.6.160.128)
+
+
+!><!
+How to attack unprotected windows PC
+
+net bios attack
+net use \\10.v.1.10\ipc$
+
+*********
+
+
+
+
+Unicast Multicast Broadcast
+
+Broadcast - ff
+Multicast - 01 00 5e
+Unicast - everything else
+
+
+
+ip do
+
+!BLOCK PORN
+config t
+NO ip access-list standard NOPORN1
+ip access-list standard NOPORN1
+DENY 66.254.0.0 0.0.255.255
+DENY 104.21.0.0 0.0.255.255
+DENY 68.235.0.0 0.0.255.255
+DENY 104.17.0.0 0.0.255.255
+DENY 88.208.0.0 0.0.255.255
+Permit Any
+Int Gi 0/0/1
+ ip access-group NOPORN1 in
+ end
+
+!BLOCK CLASS
+!block first half class
+config t
+NO ip access-list standard halfKAMI1
+ip access-list standard halfKAMI1
+DENY 10.11.1.4 0.0.255.255
+DENY 10.21.1.4 0.0.255.255
+DENY 10.31.1.4 0.0.255.255
+DENY 10.41.1.4 0.0.255.255
+DENY 10.12.1.4 0.0.255.255
+DENY 10.22.1.4 0.0.255.255
+DENY 10.32.1.4 0.0.255.255
+DENY 10.42.1.4 0.0.255.255
+Permit Any
+Int Gi 0/0/1
+  ip access-group halfKAMI1 in
+ end
+
+!block second half class
+config t
+NO ip access-list standard halfKAMI1
+ip access-list standard halfKAMI1
+DENY 10.52.1.4 0.0.255.255
+DENY 10.62.1.4 0.0.255.255
+DENY 10.72.1.4 0.0.255.255
+DENY 10.82.1.4 0.0.255.255
+DENY 10.51.1.4 0.0.255.255
+DENY 10.61.1.4 0.0.255.255
+DENY 10.71.1.4 0.0.255.255
+DENY 10.81.1.4 0.0.255.255
+DENY 10.91.1.4 0.0.255.255
+Permit Any
+Int Gi 0/0/1
+  ip access-group halfKAMI1 in
+end
+
+!block quarter of class
+config t
+NO ip access-list standard kontiKAMI1
+ip access-list standard kontiKAMI1
+DENY 10.11.1.4 0.0.255.255
+DENY 10.21.1.4 0.0.255.255
+DENY 10.31.1.4 0.0.255.255
+DENY 10.41.1.4 0.0.255.255
+DENY 10.51.1.4 0.0.255.255
+DENY 10.61.1.4 0.0.255.255
+DENY 10.71.1.4 0.0.255.255
+DENY 10.81.1.4 0.0.255.255
+DENY 10.91.1.4 0.0.255.255
+DENY 10.12.1.4 0.0.255.255
+DENY 10.22.1.4 0.0.255.255
+DENY 10.32.1.4 0.0.255.255
+DENY 10.42.1.4 0.0.255.255
+Permit Any
+Int Gi 0/0/1
+  ip access-group kontiKAMI1 in
+ end
+
+
+Task 4 Configuring Firewalls
+Top 5 Firewalls: NGFW Next Gen FireWall:
+1. palo alto
+2. checkpoint
+3. cisco
+4. sonicwall
+...69. Fortinet
+
+
+
+Task 6 Creating Fake legit business email
+sendMail: smtp
+getMail: pop
+get/send: imap
+
+gcash@kimstores62.com
+maya@kimstores62.com
+
+gcash@lazada62.com
+maya@lazada62.com
+
+program - hmail
+create email through Thunderbird
+
+
+BLDGPH3
+if config eth0 192.168.103.88 netmask 255.255.255.0 up
+route add default gw 192.168.103.8
+ping 8.8.8.8
+ping 1.1.1.1
+ping 4.2.2.2
+ping 
